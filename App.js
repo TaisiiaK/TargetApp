@@ -8,7 +8,7 @@ import GameScreen from './screens/GameScreen';
 import GameOverScreen from './screens/GameOverScreen';
 
 export default function App() {
-  const [userNumber, setUserNumber] = useState();
+  const [userNumber, setUserNumber] = useState(); // === undefined default
   const [gameIsOver, setGameIsOver] = useState(true);
 
   function pickedNumberHandler(pickedNumber) {
