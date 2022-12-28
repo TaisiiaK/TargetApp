@@ -32,7 +32,7 @@ function GameScreen({ userNumber, onGameOver }) {
   const initialGuess = GenerateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
   const [guessRounds, setGuessRounds] = useState([initialGuess]);
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     if (currentGuess === userNumber) {
@@ -120,12 +120,15 @@ function GameScreen({ userNumber, onGameOver }) {
       <View style={styles.listContainer}>
         <FlatList
           data={guessRounds}
-          renderItem={(itemData) => (
-            <GuessLogItem
-              roundNumber={guessRoundsListLength - itemData.index}
-              guess={itemData.item}
-            />
-          )}
+          renderItem={(itemData) => {
+            console.log(itemData);
+            return (
+              <GuessLogItem
+                roundNumber={guessRoundsListLength - itemData.index}
+                guess={itemData.item}
+              />
+            );
+          }}
           keyExtractor={(item) => item}
         />
       </View>
